@@ -29,6 +29,7 @@ form.addEventListener('submit', event => {
           title: 'No results',
           message: 'Sorry, there are no images matching your search query. Please try again!',
         });
+        form.reset();
         return;
       }
 
