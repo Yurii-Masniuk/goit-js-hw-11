@@ -33,6 +33,7 @@ form.addEventListener('submit', event => {
       }
 
       createGallery(data.hits);
+      form.reset();
     })
     .catch(error => {
       hideLoader();
