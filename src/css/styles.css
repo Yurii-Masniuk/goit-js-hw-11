@@ -4,38 +4,40 @@
 .hidden {
     display: none;
 }
+
 .loader {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        position: relative;
-        animation: rotate 1s linear infinite
-      }
-      .loader::before , .loader::after {
-        content: "";
-        box-sizing: border-box;
-        position: absolute;
-        inset: 0px;
-        border-radius: 50%;
-        border: 5px solid #FFF;
-        animation: prixClipFix 2s linear infinite ;
-      }
-      .loader::after{
-        inset: 8px;
-        transform: rotate3d(90, 90, 0, 180deg );
-        border-color: #FF3D00;
-      }
-
-      @keyframes rotate {
-        0%   {transform: rotate(0deg)}
-        100%   {transform: rotate(360deg)}
-      }
-
-      @keyframes prixClipFix {
-          0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
-          50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
-          75%, 100%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-      }
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%) rotate(45deg);
+    overflow: hidden;
+  }
+  .loader:after{
+    content: '';
+    position: absolute;
+    inset: 8px;
+    margin: auto;
+    background: #4e75ff;
+  }
+  .loader:before{
+    content: '';
+    position: absolute;
+    inset: -15px;
+    margin: auto;
+    background: #de3500;
+    animation: diamondLoader 2s linear infinite;
+  }
+  @keyframes diamondLoader {
+    0%  ,10% {
+      transform: translate(-64px , -64px) rotate(-45deg)
+    }
+    90% , 100% {
+      transform: translate(0px , 0px) rotate(-45deg)
+    }
+  }
 
 .gallery {
   display: grid;
@@ -90,6 +92,12 @@
   border-radius: 4px;
   width: 272px;
   height: 40px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #808080;
 }
 
 .form {
@@ -103,4 +111,4 @@
   display: flex;
   justify-content: center;
   gap: 12px;
-}
+}    
